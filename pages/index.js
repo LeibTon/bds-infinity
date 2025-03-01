@@ -1,27 +1,52 @@
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import React from "react";
 import Head from "next/head";
+import Slider from "react-slick";  // Import the carousel library
 
 export default function Home() {
+  const carouselImages = [
+    "/images/homepage/index_bg.png", 
+    "/images/homepage/pariksha.jpg", // Add more image paths here as needed
+    "/images/homepage/csc_banner.jpeg"
+  ];
+
+  // Slick Carousel settings
+  const settings = {
+    // dots: true,  // Enable indicators
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    draggable: true,
+    swipe: true,
+    autoplay: true,  // Enable autoplay
+    autoplaySpeed: 3000, // Speed of autoplay
+    className: "slick-carousel",  // Custom class for styling
+    // adaptiveHeight: true
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-0 px-0 py-0 overflow-x-hidden">
       <Head>
         <title>Home | BDS Infinity</title>
       </Head>
 
-      {/* Hero Section */}
+      {/* Hero Section - Carousel */}
       <section className="mb-8 relative">
-        <div className="absolute inset-0 bg-gray-800 opacity-50"></div>
-        <img 
-          src="/images/index_bg.png" 
-          alt="Digital Mall Concept" 
-          className="w-full h-96 object-cover rounded-lg"
-        />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white z-10 px-4">
-          <h1 className="text-4xl font-bold mb-6">Welcome To BDS Infinity Private Limited</h1>
-          <p className="text-xl max-w-3xl">
-            Bridging the digital divide with innovative solutions for businesses and communities.
-          </p>
-        </div>
+        <Slider {...settings}>
+          {carouselImages.map((img, index) => (
+            <div key={index} className="relative">
+              <div className="absolute inset-0 bg-gray-800 opacity-50"></div>
+              <img 
+                src={img} 
+                alt={`Carousel Image ${index + 1}`} 
+                className="w-full h-auto object-cover rounded-lg shadow-lg"
+              />
+            </div>
+          ))}
+        </Slider>
       </section>
 
       {/* Founder Section */}
@@ -44,7 +69,7 @@ export default function Home() {
       {/* Idea of the Digital Mall */}
       <section className="mb-8">
         <div className="flex flex-col lg:flex-row items-center justify-center space-y-4 lg:space-x-8">
-        <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2">
             <img 
               src="/images/digital_mall.png" 
               alt="Digital Mall Concept" 
@@ -52,7 +77,7 @@ export default function Home() {
             />
           </div>
           <div className="w-full lg:w-1/2 text-center">
-          <h2 className="text-2xl font-semibold mb-4 text-center">The Idea of the Digital Mall</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-center">The Idea of the Digital Mall</h2>
             <p className="text-xl">
               The idea of a "Digital Mall" serves as the foundation for Bharat Digital Solutions. This innovative strategy brings together a wide range of services to support business-to-business (B2B), business-to-citizen (B2C), government-to-citizen (G2C), and business-to-government (G2G) interactions all under one roof.
             </p>
@@ -79,7 +104,6 @@ export default function Home() {
 
       {/* Our Goal Section */}
       <section className="mb-8 flex flex-col lg:flex-row-reverse items-center justify-center space-y-4 lg:space-x-8 lg:space-x-reverse">
-  
         <div className="w-full lg:w-2/3 text-center">
           <h2 className="text-2xl font-semibold mb-4">Our Goal</h2>
           <p className="text-xl">
@@ -96,32 +120,30 @@ export default function Home() {
         </div>
       </section>
 
-     {/* Services All Under One Roof */}
-<section className="mb-8">
-  <h2 className="text-4xl font-semibold mb-4 text-center text-gray-800">
-    Services All Under One Roof
-  </h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-    <div className="text-center p-4 border border-gray-200 rounded-lg shadow-md">
-      <h3 className="text-3xl font-semibold mb-2 text-gray-700">G2C Services</h3>
-      <p className="text-xl">Providing essential government services to citizens.</p>
-    </div>
-    <div className="text-center p-4 border border-gray-200 rounded-lg shadow-md">
-      <h3 className="text-3xl font-semibold mb-2 text-gray-700">B2B Partnerships</h3>
-      <p className="text-xl">Facilitating productive business-to-business connections.</p>
-    </div>
-    <div className="text-center p-4 border border-gray-200 rounded-lg shadow-md">
-      <h3 className="text-3xl font-semibold mb-2 text-gray-700">G2G Exchanges</h3>
-      <p className="text-xl">Simplifying government-to-government interactions.</p>
-    </div>
-    <div className="text-center p-4 border border-gray-200 rounded-lg shadow-md">
-      <h3 className="text-3xl font-semibold mb-2 text-gray-700">B2C Transactions</h3>
-      <p className="text-xl">Enabling seamless business-to-customer transactions.</p>
-    </div>
-  </div>
-</section>
-
-
+      {/* Services All Under One Roof */}
+      <section className="mb-8">
+        <h2 className="text-4xl font-semibold mb-4 text-center text-gray-800">
+          Services All Under One Roof
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-center p-4 border border-gray-200 rounded-lg shadow-md">
+            <h3 className="text-3xl font-semibold mb-2 text-gray-700">G2C Services</h3>
+            <p className="text-xl">Providing essential government services to citizens.</p>
+          </div>
+          <div className="text-center p-4 border border-gray-200 rounded-lg shadow-md">
+            <h3 className="text-3xl font-semibold mb-2 text-gray-700">B2B Partnerships</h3>
+            <p className="text-xl">Facilitating productive business-to-business connections.</p>
+          </div>
+          <div className="text-center p-4 border border-gray-200 rounded-lg shadow-md">
+            <h3 className="text-3xl font-semibold mb-2 text-gray-700">G2G Exchanges</h3>
+            <p className="text-xl">Simplifying government-to-government interactions.</p>
+          </div>
+          <div className="text-center p-4 border border-gray-200 rounded-lg shadow-md">
+            <h3 className="text-3xl font-semibold mb-2 text-gray-700">B2C Transactions</h3>
+            <p className="text-xl">Enabling seamless business-to-customer transactions.</p>
+          </div>
+        </div>
+      </section>
 
       {/* Our Philosophy Section */}
       <section className="mb-8">
