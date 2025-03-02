@@ -139,28 +139,28 @@ Recognising the Digital Literacy Gap: The creators are sympathetic to the plight
   <div className="flex justify-center space-x-8 mt-6">
     <Link href="https://ajivika.co.in/" target="_blank" className="flex justify-center items-center">
       <img
-        src="https://ajivika.co.in/images/logo.png"
+        src="/images/partners/ajivika.png"
         alt="Ajivika"
         className="h-20 object-contain"
       />
     </Link>
     <Link href="https://www.csc.gov.in/" target="_blank" className="flex justify-center items-center">
       <img
-        src="https://www.csc.gov.in/assets/images/csc_name.png"
+        src="/images/partners/csc.png"
         alt="CSC"
         className="h-20 object-contain"
       />
     </Link>
     <Link href="https://jansamridhi.org/" target="_blank" className="flex justify-center items-center">
       <img
-        src="https://jansamridhi.org/images/logo-t.png"
-        alt="EDS"
+        src="/images/partners/jsr.png"
+        alt="JSR"
         className="h-20 object-contain"
       />
     </Link>
     <Link href="http://edsskill.in/" target="_blank" className="flex justify-center items-center">
       <img
-        src="http://edsskill.in/images/ocw_mast.png"
+        src="/images/partners/eds.png"
         alt="EDS"
         className="h-20 object-contain"
       />
